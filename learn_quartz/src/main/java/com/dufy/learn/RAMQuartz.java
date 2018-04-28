@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  */
 public class RAMQuartz {
 
-	private static Logger _log = LoggerFactory.getLogger(RAMQuartz.class);
+//	private static Logger _log = LoggerFactory.getLogger(RAMQuartz.class);
 	
 	public static void main(String[] args) throws SchedulerException {
 		//1.创建Scheduler的工厂
@@ -57,7 +57,7 @@ public class RAMQuartz {
 		
 		//6.启动 调度器
 		scheduler.start();
-		_log.info("启动时间 ： " + new Date());
+//		_log.info("启动时间 ： " + new Date());
 			
 	}
 }

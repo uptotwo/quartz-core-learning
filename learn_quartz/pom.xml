@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--在线cron表达式生成器  http://cron.qqe2.com/ -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dufy</groupId>
   <artifactId>learn_quartz</artifactId>
@@ -11,10 +12,9 @@
   <dependencies>
   	<!-- 测试jar -->
     <dependency>
-	      <groupId>junit</groupId> 
-	      <artifactId>junit</artifactId>
-	      <version>3.8.1</version>
-	      <scope>test</scope>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<version>4.9</version>
     </dependency>
     <!-- quartz -->
     <dependency>
@@ -64,7 +64,33 @@
 	</dependency>
 	
   </dependencies>
+  <!--change the main map , new a thread  to add message to sideMap,
+  
+   count the map size, if larger than 5, copy the data to DB and clear the map -->
+   
   <build>
     <finalName>learn_quartz</finalName>
+    <plugins>
+    	<plugin>
+    		<groupId>org.apache.tomcat.maven</groupId>
+    		<artifactId>tomcat7-maven-plugin</artifactId>
+    		<version>2.2</version>
+    		<configuration>
+    			<path>
+    				/${project.build.finalName}
+    			</path>
+    		</configuration>
+    	</plugin>
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-compiler-plugin</artifactId>
+    		<version>2.3.2</version>
+    		<configuration>
+    			<source>1.8</source>
+    			<target>1.8</target>
+    		</configuration>
+    	</plugin>
+    </plugins>
   </build>
+
 </project>
